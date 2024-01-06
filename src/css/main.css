@@ -1,0 +1,142 @@
+@keyframes blinkAnimation {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #6e8b0c;
+    color: #FFFFFF;
+  }
+}
+
+@keyframes redBlinkAnimation {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #e82c2c;
+    color: #FFFFFF;
+  }
+}
+
+@keyframes ArrowBlinkAnimation {
+  0%, 100% {
+    border-top: 20px solid transparent;
+    border-left: 70px solid #37231b;
+    border-bottom: 20px solid transparent;
+  }
+  50% {
+    border-top: 20px solid transparent;
+    border-left: 70px solid #6e8b0c;
+    border-bottom: 20px solid transparent;
+  }
+}
+
+@keyframes ArrowRemoveBlinkAnimation {
+  0%, 100% {
+    border-top: 20px solid transparent;
+    border-left: 70px solid #6e8b0c;
+    border-bottom: 20px solid transparent;
+  }
+}
+
+@keyframes ArrowRedRemoveBlinkAnimation {
+  0%, 100% {
+    border-top: 20px solid transparent;
+    border-left: 70px solid #37231b;
+    border-bottom: 20px solid transparent;
+  }
+  50% {
+    border-top: 20px solid transparent;
+    border-left: 70px solid #e82c2c;
+    border-bottom: 20px solid transparent;
+  }
+}
+
+@keyframes removeBlinkAnimation {
+  0%, 100% {
+    background-color: #6e8b0c;
+    color: #FFFFFF;
+  }
+}
+
+@font-face {
+  font-family: videotype;
+  src         : url("./fonts/videotype.otf");
+  src         : url("./fonts/videotype.ttf");
+  font-weight : normal;
+  font-style  : normal;
+}
+
+.container {
+  display: flex;
+  width: 1700px;
+  height: 1600px;
+  justify-content: end;
+  text-wrap: normal;
+  background-repeat: no-repeat;
+}
+
+.container ul {
+  color: #37231b;
+
+  font-size: 35.5pt;
+  margin: 0;
+  list-style: none; /* Убираем стандартные маркеры */
+  padding: 0; /* Убираем отступ слева */
+}
+
+li {
+  padding: 15px 15px 15px 15px;
+  position: relative;
+  list-style-type: none;
+  font-family: "videotype", Arial, Helvetica, sans-serif;
+}
+
+li:focus:before {
+  content: "";
+  position: absolute; /* Отступ от текста */
+
+  left: -70px;
+  top: calc(45% - 10px);
+  bottom: auto;
+
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-left: 70px solid #37231b;
+  border-bottom: 20px solid transparent;
+}
+
+li.completed:focus:before {
+  animation: ArrowBlinkAnimation .2s ease-in-out 3; /* Анимация мигания */
+}
+
+li.replaced:focus:before {
+  animation: ArrowRemoveBlinkAnimation .7s linear,
+  ArrowRedRemoveBlinkAnimation .2s ease-in-out 3 .7s;
+}
+
+
+li:focus  {
+  background-color: #f8d9b5;
+  outline: none;
+}
+
+.completed {
+  color: #b89872;
+  animation: blinkAnimation .2s ease-in-out 3; /* Анимация мигания */
+}
+
+.replaced {
+  color: #b89872;
+}
+
+.completed:focus {
+  color: #b89872;
+  animation: blinkAnimation .2s ease-in-out 3; /* Анимация мигания */
+}
+
+.replaced:focus {
+  animation: removeBlinkAnimation .7s linear,
+  redBlinkAnimation .2s ease-in-out 3 .7s;
+}
