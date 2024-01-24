@@ -72,6 +72,9 @@
   width: 1700px;
   height: 1600px;
   justify-content: end;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px; 
   text-wrap: normal;
   background-repeat: no-repeat;
 }
