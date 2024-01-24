@@ -12,7 +12,8 @@ export const data = {
     "Meet the sunrise at Punta della Dogana",
     "Explore the Biennale",
     "Taste the most authentic Venetian Spritz",
-    "Touch a medieval skyscraper"
+    "Touch a medieval skyscraper",
+    "Новый пункт меню",
   ],
   pointersForReplacing: [
     "Explore the Biennale"
